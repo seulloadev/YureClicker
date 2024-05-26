@@ -1,6 +1,6 @@
 let hp = "./assets/heart.gif";
 var cards = [
-    createCard("¡Hola!", hp, "¡He diseñado algo muy especial para ti!<br/>¡Haz 14 clicks más!", 1),
+    createCard("¡Holaaaaaaaaa!", hp, "¡He diseñado algo muy especial para ti!<br/>¡Haz 14 clicks más!", 1),
     createCard("¿Ya te acostumbras?", hp, "Como puedes ver, entre más clicks hagas, verás más mensajes", 15),
     createCard("¡Buenos días preciosa!", "./assets/yure1.jpg", "No tengo siquiera que verte para saber lo muy preciosa que luces esta mañana. Hice esto para ti con mucho amor <3<br/>Por el momento no he trabajado en más cartitas, pero mi mensaje es que te aprecio demasiado y es muy lindo tenerte aquí un día más :)", 30)
 ];
