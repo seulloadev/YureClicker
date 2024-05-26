@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function increaseClickCount() {
         const counter = document.getElementById("click-counter");
 
-        let audio = new Audio('../assets/coin.mp3');
+        let audio = new Audio('./assets/coin.mp3');
         audio.play();
 
         clicks++;
