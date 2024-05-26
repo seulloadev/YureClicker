@@ -1,8 +1,9 @@
 let hp = "./assets/heart.gif";
 var cards = [
-    createCard("¡Holaaaaaaaaa :D!", hp, "¡He diseñado algo muy especial para ti!<br/>¡Haz 14 clicks más!", 1),
+    createCard("¡Hola!", hp, "¡He diseñado algo muy especial para ti!<br/>¡Haz 14 clicks más!", 1),
     createCard("¿Ya te acostumbras?", hp, "Como puedes ver, entre más clicks hagas, verás más mensajes", 15),
-    createCard("¡Buenos días preciosa!", "./assets/yure1.jpg", "No tengo siquiera que verte para saber lo muy preciosa que luces esta mañana. Hice esto para ti con mucho amor <3<br/>Por el momento no he trabajado en más cartitas, pero mi mensaje es que te aprecio demasiado y es muy lindo tenerte aquí un día más :)", 30)
+    createCard("¡Buenos días preciosa!", "./assets/yure1.jpg", "No tengo siquiera que verte para saber lo muy preciosa que luces esta mañana. Hice esto para ti con mucho amor <3<br/>Mi mensaje es que te aprecio demasiado y es muy lindo tenerte aquí un día más :)", 30),
+    createCard("¡Falta 1 día!", hp, "Al día de hoy puedo confirmar que falta 1 día para cumplir 5 meses desde aquel día en el que nos convertimos novios. Prácticamente medio año ya que se ha sentido brutal, definitivamente superaste cualquier expectativa que podría tener, porque en ti encontré lo que me faltaba y eso me hace sentir demasiado alegre.", 45)
 ];
 
 function createCard(title, picture, message, requiredClicks) {
@@ -15,6 +16,7 @@ function createCard(title, picture, message, requiredClicks) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const heartContainer = document.getElementById("heart-container");
     const heartElement = document.getElementById("heart");
     const gif = document.getElementById("hearts");
     const progressBar = document.getElementsByClassName("progress-bar")[0];
@@ -36,9 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById("btn-close-card").addEventListener("click", () => {
-        const cardElement = document.getElementById("card");
-        cardElement.style.visibility = "collapse";
+        const cardElement = document.getElementsByClassName("card")[0];
+        
+        hide(cardElement);
+        show(heartContainer);
     })
+
+    function hide(element) {
+        element.classList.add("hidden-container");
+    }
+
+    function show(element) {
+        element.classList.remove("hidden-container");
+    }
 
     
     if (localStorage.getItem("clicks")) {
@@ -89,9 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showCard() {
+        // Ocultar contenedor de corazón
+        hide(heartContainer);
+
         const card = cards[currentCardIndex];
 
-        const cardElement = document.getElementById("card");
+        const cardElement = document.getElementsByClassName("card")[0];
         const titleElement = document.getElementById("card-title");
         const textElement = document.getElementById("card-text");
         const imageElement = document.getElementById("card-image");
@@ -100,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         titleElement.innerHTML = card.titulo;
         textElement.innerHTML = card.mensaje;
         imageElement.src = card.foto;
-        cardElement.style.visibility = "visible";
+        show(cardElement);
     }
 
     function nextCardReached() {

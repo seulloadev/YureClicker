@@ -87,39 +87,36 @@ h1, h2 {
     visibility: collapse;
 }
 
-#card {
-    visibility: collapse;
-    position: absolute;
+.card {
     display: flex;
     flex-direction: column;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
-    transform: translate(-50%, -50%);
     background-color: #272727;
     border: gray solid 2px;
     border-radius: 25px;
+    margin: 20px;
     padding: 10px;
 }
 
-#card hr {
+.hidden-container {
+    display: none;
+}
+
+.card hr {
     width: 100%;
 }
 
-#card p {
+.card p {
     flex: 1;
 }
 
-#card img {
-    flex: 1;
+.card img {
     margin: 8px;
-    height: 50%;
+    max-height: 400px;
     width: auto;
     align-self: center;
 }
 
-#card button {
+.card button {
     width: 8rem;
     height: 2.2rem;
     border-radius: 10px;
